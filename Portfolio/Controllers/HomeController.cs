@@ -1,10 +1,11 @@
 using Microsoft.AspNetCore.Mvc;
+using System;
 
 namespace Portfolio.Controllers
 {
     public class HomeController : Controller
     {
-        [HttpGet("")]
+        [HttpGet("/")]
 
         public ViewResult Index()
         {
@@ -22,6 +23,14 @@ namespace Portfolio.Controllers
         public ViewResult Contact()
         {
             return View("Contact");
+        }
+
+        [HttpPost("/post")]
+
+        public RedirectToActionResult Post(string name, string email, string message)
+        {
+            Console.WriteLine("good");
+            return  RedirectToAction("Index");
         }
 
         
